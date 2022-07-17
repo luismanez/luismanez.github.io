@@ -2,6 +2,8 @@
 This is my personal websote hosted in GitHub pages. 
 This web app has been created using create-react-app. See [here](https://create-react-app.dev/docs/deployment#github-pages) for more information about how to Deploy.
 
+There is a _dev_ branch used for developing, and the Main branch is the public one. Before publishing using ```npm deploy``` ensure you are in the _dev_ branch.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
