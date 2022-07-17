@@ -1,0 +1,6 @@
+.skills_section_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin-top: 30px;
+    gap:30px;    
+}

@@ -1,0 +1,79 @@
+.experience_section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container_experience {
+    border: 1px solid;
+    padding: 5px;
+    margin: 10px;
+}
+
+.experience_item_heading {
+    font-size: 3vh;
+}
+
+.chief{
+    color: #2D9593;
+}
+
+.chief_border {
+    border-color: #2D9593;
+}
+
+.spdev{
+    color: #AC5253;
+}
+
+.spdev_border {
+    border-color: #AC5253;
+}
+
+.cto{
+    color: #009DDC;
+}
+
+.cto_border {
+    border-color: #009DDC;
+}
+
+.architect{
+    color: #464555;
+}
+
+.architect_border {
+    border-color: #464555;
+}
+
+.techlead{
+    color: #9B6100;
+}
+
+.techlead_border {
+    border-color: #9B6100;
+}
+
+.eng{
+    color: #DCD9FF;
+}
+
+.eng_border {
+    border-color: #DCD9FF;
+}
+
+.experience_item_content {
+    font-size: 1.2vh;
+    padding-left: 3px;
+}
+
+.experience_item_period {
+    font-size: 1.3vh;
+    padding-left: 3px;
+}
+
+@media screen and (max-width: 770px) {
+    .experience_item_content {
+        font-size: 1.5vh;
+        padding-left: 3px;
+    }
+}

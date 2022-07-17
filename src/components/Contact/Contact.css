@@ -1,0 +1,24 @@
+.contact_section {
+    background-color: #6667AB;    
+    padding: 15px;
+}
+
+.contact_container {
+    display: grid;        
+    padding: 5px;
+    font-size: small;
+    gap: 10px;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.contact_social {
+    justify-self: center;
+}
+
+.contact_social i {
+    font-size: xx-large;
+    color: white;
+    padding: 5px;
+}
