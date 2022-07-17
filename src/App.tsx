@@ -8,7 +8,7 @@ import './styles/App.css';
 
 function App() {
   return (
-    <div className="App" id='__App__'>
+    <div className="App">
       <Presentation />
       <AboutMe />
       <Skills /> 
