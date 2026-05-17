@@ -1,6 +1,7 @@
 const steps = [
   {
     number: 1,
+    startYear: '2001',
     era: '2001 – 2002',
     company: 'Encamina, Spain',
     title: 'Software Engineer',
@@ -9,6 +10,7 @@ const steps = [
   },
   {
     number: 2,
+    startYear: '2002',
     era: '2002 – 2004',
     company: 'Encamina, Spain',
     title: 'Technical Lead',
@@ -17,6 +19,7 @@ const steps = [
   },
   {
     number: 3,
+    startYear: '2004',
     era: '2004 – 2007',
     company: 'Encamina, Spain',
     title: 'Software Architect',
@@ -25,6 +28,7 @@ const steps = [
   },
   {
     number: 4,
+    startYear: '2007',
     era: '2007 – 2012',
     company: 'Encamina, Spain',
     title: 'Chief Technology Officer',
@@ -33,6 +37,7 @@ const steps = [
   },
   {
     number: 5,
+    startYear: '2012',
     era: '2012 – 2015',
     company: 'Content and Code, UK',
     title: 'SharePoint Developer',
@@ -41,6 +46,7 @@ const steps = [
   },
   {
     number: 6,
+    startYear: 'Today',
     era: '2016 – Today',
     company: 'ClearPeople, UK',
     title: 'Chief Architect',
@@ -49,16 +55,34 @@ const steps = [
   },
 ]
 
+function scrollToStep(startYear: string) {
+  const el = document.getElementById(`journey-step-${startYear}`)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+}
+
 export default function Journey() {
   return (
     <div className="journey">
-      <p className="section-label">MY JOURNEY</p>
+      <div className="journey__header">
+        <p className="section-label">MY JOURNEY</p>
+        <nav className="journey__year-nav" aria-label="Jump to year">
+          {steps.map((step) => (
+            <button
+              key={step.startYear}
+              className="journey__year-tag"
+              onClick={() => scrollToStep(step.startYear)}
+            >
+              {step.startYear}
+            </button>
+          ))}
+        </nav>
+      </div>
       <div className="journey__timeline">
         {steps.map((step) => (
-          <div key={step.number} className="journey__step">
+          <div key={step.number} id={`journey-step-${step.startYear}`} className="journey__step">
             <div className="journey__step-marker">
               <span className="journey__step-number">{step.number}</span>
-              <span className="journey__step-era">{step.era}</span>
+              <span className="journey__step-era">{step.startYear}</span>
               <span className="journey__step-company">{step.company}</span>
             </div>
             <div className="journey__step-content">

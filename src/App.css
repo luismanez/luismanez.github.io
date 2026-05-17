@@ -381,6 +381,38 @@ section:last-child { border-bottom: none; }
 /* =====================================================
    JOURNEY — mobile first
    ===================================================== */
+.journey__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.journey__year-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.journey__year-tag {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+
+.journey__year-tag:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
 .journey__timeline {
   display: flex;
   flex-direction: column;
@@ -720,6 +752,16 @@ section:last-child { border-bottom: none; }
   .about h2 { font-size: 2rem; }
 
   /* Journey */
+  .journey__header {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .journey__header .section-label {
+    margin-bottom: 0;
+  }
+
   .journey__step {
     display: grid;
     grid-template-columns: 180px 1fr;
