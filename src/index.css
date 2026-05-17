@@ -5,16 +5,16 @@
 }
 
 :root {
-  --color-primary: #1a1f6e;
-  --color-primary-dark: #0f1247;
-  --color-accent: #3b47cc;
-  --color-text: #111827;
+  --color-primary: #05185F;
+  --color-primary-dark: #030f3f;
+  --color-accent: #05185F;
+  --color-text: #0d0d0d;
   --color-text-muted: #6b7280;
   --color-bg: #ffffff;
   --color-bg-subtle: #f8f9ff;
   --color-border: #e5e7eb;
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --radius: 12px;
   --max-width: 1100px;
   --nav-height: 72px;
@@ -30,6 +30,11 @@ body {
   background-color: var(--color-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 a {

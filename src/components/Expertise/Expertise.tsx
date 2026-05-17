@@ -2,7 +2,7 @@ const areas = [
   {
     icon: '✦',
     title: 'Microsoft AI',
-    description: 'Designing and building AI-powered solutions with Azure OpenAI, Semantic Kernel, and more.',
+    description: 'Designing and building AI-powered solutions with Azure OpenAI, MS Agent Framework, and more.',
   },
   {
     icon: '☁',
@@ -15,7 +15,7 @@ const areas = [
     description: 'Building reliable, modern and performant applications with .NET and related technologies.',
   },
   {
-    icon: '365',
+    icon: 'M365',
     title: 'Microsoft 365 & Graph',
     description: 'Extending Microsoft 365 with Graph API, custom APIs and smart integrations.',
   },
