@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# Luis Mañez — Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Luis Mañez personal website hosted on GitHub Pages at [luismanez.com](https://luismanez.com).
 
-Currently, two official plugins are available:
+Built with **Vite + React + TypeScript**. The source code lives in the `v2` branch; the `master` branch contains only the compiled output served by GitHub Pages. **You never touch `master` manually** — deployment is fully automated via GitHub Actions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Branch structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Branch | Purpose |
+|--------|---------|
+| `v2` | Source code. This is where you work. |
+| `master` | Built output only. Served by GitHub Pages. Do not edit manually. |
+| `dev` | Old source (kept for reference, do not use). |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Local development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# 1. Make sure you are on the v2 branch
+git checkout v2
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 2. Install dependencies (only needed the first time, or after pulling new changes)
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 3. Start the dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The site will be available at **http://localhost:5173** with hot module reload.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Making changes
+
+1. Edit files under `src/` — components are in `src/components/`, one folder per section.
+2. The dev server reloads automatically on save.
+3. When done, commit and push to `v2`:
+
+```bash
+git add -A
+git commit -m "describe what you changed"
+git push origin v2
 ```
+
+That's it. Pushing to `v2` triggers GitHub Actions automatically.
+
+---
+
+## How publishing works (automated)
+
+The file `.github/workflows/deploy.yml` defines the pipeline:
+
+1. **Trigger:** any push to `v2`
+2. **Build:** runs `npm run build` → output goes to `dist/`
+3. **Deploy:** pushes `dist/` to `master` (including the `CNAME` file for the custom domain)
+4. **GitHub Pages:** serves `master` → available at luismanez.com in ~1 minute
+
+You can monitor the pipeline at: https://github.com/luismanez/luismanez.github.io/actions
+
+---
+
+## Project structure
+
+```
+src/
+  App.tsx                  ← root component, assembles all sections
+  App.css                  ← all component styles
+  index.css                ← CSS variables, reset
+  components/
+    Navigation/            ← sticky top nav with scroll links
+    Hero/                  ← intro section (name, stats, CTAs)
+    About/                 ← about me + tech grid
+    Journey/               ← career timeline
+    Expertise/             ← expertise cards
+    Articles/              ← selected articles
+    Speaking/              ← community & speaking links
+    Contact/               ← contact CTA
+    Footer/                ← footer
+public/
+  CNAME                    ← custom domain (luismanez.com)
+.github/workflows/
+  deploy.yml               ← GitHub Actions deploy pipeline
+```
+
+---
+
+## Useful commands
+
+| Command | What it does |
+|---------|-------------|
+| `npm run dev` | Start local dev server on port 5173 |
+| `npm run build` | Build for production into `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
